@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oasis Crazy ♾ Hours </title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div class="box" role="main" aria-label="Timer principal do OASIS Crazy">
+        <!-- LEFT: logo + title -->
+        <div class="left">
+            <div class="logo-container">
+                <img src="teste.png" alt="Logo do Bar Coyote" />
+            </div>
+            <h1>OASIS CRAZY ♾</h1> 
+            
+            <h1>HOURS</h1>
+        </div>
+
+        <!-- CENTER: cronômetro + glow trails + message + botões -->
+        <div class="center">
+            <div class="chrono-glow">
+                <div id="cronometro" aria-live="polite" aria-atomic="true">
+                    <p id="tempo">01:00:00</p>
+                </div>
+            </div>
+            <div id="message" aria-live="polite" aria-atomic="true">WAIT... THE TIMER IS READY TO START!</div>
+            <div class="botoes">
+                <button id="iniciarBtn" aria-pressed="false">START</button>
+                <button id="addMinuteBtn">ADD 1 MINUTE</button>
+            </div>
+        </div>
+
+        <!-- RIGHT: QR Code + FOLLOW US -->
+        <div class="right">
+            <div class="qr-section">
+                <div class="qr-message">FOLLOW US</div>
+                <div class="qr-code-container">
+                    <a href="https://www.instagram.com/oasisbyache/" target="_blank" rel="noopener noreferrer" aria-label="Instagram do Coyote by Ache">
+                        <img
+                            id="qrCode"
+                            src="https://api.qrserver.com/v1/create-qr-code/?data=https://www.instagram.com/oasisbyache&size=250x250&color=ffffff&bgcolor=000000"
+                            alt="QR Code para Instagram"
+                        />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
