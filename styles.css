@@ -1,5 +1,5 @@
 /* ===========================
-   RESET BÁSICO
+   RESET
 =========================== */
 * {
     margin: 0;
@@ -8,11 +8,11 @@
 }
 
 /* ===========================
-   BODY / LAYOUT PRINCIPAL
+   BODY
 =========================== */
 body {
     font-family: 'Orbitron', sans-serif;
-    background-color: #000; /* fundo preto absoluto */
+    background-color: #000;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -23,23 +23,18 @@ body {
 }
 
 /* ===========================
-   CONTAINER GERAL (BOX / FORM)
+   CONTAINER GERAL
 =========================== */
-.box, form {
+.box {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
-    padding: 2vh 2vw;
-    gap: 1vw;
-
-    /* Borda neon verde */
+    padding: 3vh 3vw;
     border: 2px solid #39ff14;
     border-radius: 15px;
-
-    /* Glow neon pulsante */
     box-shadow:
         0 0 10px #39ff14,
         0 0 20px #00ff7f,
@@ -49,10 +44,10 @@ body {
 }
 
 /* ===========================
-   ANIMAÇÃO DE PULSO NEON NA BORDA
+   ANIMAÇÃO NEON
 =========================== */
 @keyframes neonBorderPulse {
-    0% {
+    0%, 100% {
         box-shadow:
             0 0 8px #39ff14,
             0 0 16px #00ff7f,
@@ -64,115 +59,65 @@ body {
             0 0 30px #00ff7f,
             inset 0 0 24px rgba(0, 255, 127, 0.5);
     }
-    100% {
-        box-shadow:
-            0 0 8px #39ff14,
-            0 0 16px #00ff7f,
-            inset 0 0 12px rgba(0, 255, 127, 0.3);
-    }
 }
 
 /* ===========================
-   COLUNAS INTERNAS
+   TOPO CENTRAL
 =========================== */
-.left, .center, .right {
+.top {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    gap: 1vh;
+    text-align: center;
+    margin-top: 2vh;
 }
 
-/* ===========================
-   LOGO / TÍTULOS
-=========================== */
 .logo-container {
-    width: 100%;
     max-width: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+    width: 100%;
 }
 
 .logo-container img {
-    width: 125%;
+    width: 100%;
     height: auto;
-    max-height: 200px;
     object-fit: contain;
-    filter: drop-shadow(0 0 12px #39ff14); /* glow verde */
-    padding: 5px;
+    filter: drop-shadow(0 0 12px #39ff14);
     border-radius: 10px;
 }
 
 h1 {
-    font-size: clamp(16px, 2vw, 36px);
-    color: #00ff7f; /* verde neon */
+    font-size: clamp(18px, 2.2vw, 38px);
+    color: #00ff7f;
     text-shadow: 0 0 6px #39ff14, 0 0 12px #00ff7f;
     text-transform: uppercase;
-    text-align: center;
+    margin-top: 1vh;
 }
 
 /* ===========================
-   CRONÔMETRO / EFEITOS DE GLOW
+   CENTRO
 =========================== */
-.chrono-glow {
-    position: relative;
+.center {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 3vh;
+    text-align: center;
+    margin-top: 2vh;
 }
 
 #cronometro {
     font-size: clamp(36px, 8vw, 220px);
     font-weight: 700;
-    color: #00ff7f; /* verde neon */
-    line-height: 1;
-    z-index: 2;
+    color: #00ff7f;
+    text-shadow: 0 0 15px #00ff7f;
 }
 
-.chrono-glow::before,
-.chrono-glow::after {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(57,255,20,0.15), transparent 70%);
-    animation: glowTrail 4s infinite alternate;
-    z-index: 1;
-}
-
-.chrono-glow::after {
-    animation-delay: 2s;
-}
-
-/* ===========================
-   ANIMAÇÕES DE GLOW
-=========================== */
-@keyframes glowTrail {
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
-    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.6; }
-    100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
-}
-
-@keyframes neonPulse {
-    0% { text-shadow: 0 0 6px #39ff14, 0 0 12px #00ff7f; transform: scale(1); }
-    50% { text-shadow: 0 0 12px #39ff14, 0 0 20px #00ff7f; transform: scale(1.03); }
-    100% { text-shadow: 0 0 6px #39ff14, 0 0 12px #00ff7f; transform: scale(1); }
-}
-
-/* ===========================
-   MENSAGEM ABAIXO DO TIMER
-=========================== */
 #message {
-    font-size: clamp(12px, 1.5vw, 20px);
+    font-size: clamp(14px, 1.6vw, 22px);
     font-style: italic;
     color: #00ff7f;
     text-shadow: 0 0 4px #39ff14;
-    text-align: center;
-    margin-top: 1vh;
 }
 
 /* ===========================
@@ -181,35 +126,34 @@ h1 {
 .botoes {
     display: flex;
     flex-direction: column;
-    gap: 1vh;
-    width: 100%;
+    gap: 2vh;
     align-items: center;
-    margin-top: 2vh;
+    margin-top: 1vh;
 }
 
 button {
-    width: clamp(140px, 20vw, 280px);
-    padding: clamp(8px, 1.2vh, 16px) clamp(12px, 2vw, 24px);
-    font-size: clamp(14px, 1.8vw, 20px);
+    width: clamp(160px, 22vw, 280px);
+    padding: clamp(10px, 1.5vh, 18px) clamp(12px, 2vw, 24px);
+    font-size: clamp(14px, 1.8vw, 22px);
     border: none;
     border-radius: 8px;
-    background: linear-gradient(90deg, #006400, #39ff14); /* verde escuro -> neon */
+    background: linear-gradient(90deg, #006400, #39ff14);
     color: #fff;
     font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
     box-shadow: 0 0 8px #39ff14, 0 0 15px #00ff7f;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
 }
 
 button:hover:not(:disabled) {
     transform: scale(1.05);
-    box-shadow: 0 0 15px #39ff14, 0 0 25px #00ff7f;
+    box-shadow: 0 0 18px #39ff14, 0 0 30px #00ff7f;
 }
 
 button:active {
-    transform: scale(0.98);
-    box-shadow: 0 0 25px #39ff14, 0 0 40px #00ff7f; /* brilho mais forte ao clicar */
+    transform: scale(0.96);
+    box-shadow: 0 0 25px #39ff14, 0 0 40px #00ff7f;
 }
 
 button:disabled {
@@ -218,13 +162,19 @@ button:disabled {
 }
 
 /* ===========================
-   QR CODE / FOLLOW US
+   QR CODE CENTRALIZADO
 =========================== */
-.qr-section {
+.right {
+    position: absolute;
+    top: 50%;
+    right: 3vw;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.8vh;
+    justify-content: center;
+    gap: 1.5vh;
+    text-align: center;
 }
 
 .qr-message {
@@ -235,7 +185,7 @@ button:disabled {
 }
 
 .qr-code-container img {
-    width: clamp(80px, 12vw, 220px);
+    width: clamp(90px, 12vw, 220px);
     height: auto;
     border-radius: 10px;
     box-shadow: 0 0 10px #39ff14, 0 0 20px #00ff7f;
@@ -244,36 +194,38 @@ button:disabled {
 }
 
 /* ===========================
-   RESPONSIVIDADE
+   RESPONSIVIDADE GERAL
 =========================== */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
+    .right {
+        position: static;
+        transform: none;
+        margin-top: 4vh;
+    }
+
     .box {
-        flex-direction: column;
-        justify-content: center;
-        gap: 3vh;
-        padding: 2vh 3vw;
+        padding: 3vh 5vw;
     }
 
     .center {
-        order: 1;
-    }
-
-    .right {
-        order: 2;
-    }
-
-    .logo-container {
-        max-width: 150px;
+        gap: 2.5vh;
     }
 }
 
-@media (min-width: 601px) {
-    #message {
-        order: 1;
-        margin-top: 1vh;
+@media (max-width: 600px) {
+    .logo-container {
+        max-width: 160px;
     }
 
-    .right {
-        order: 2;
+    #cronometro {
+        font-size: clamp(48px, 20vw, 160px);
+    }
+
+    button {
+        width: 80%;
+    }
+
+    .qr-message {
+        margin-top: 2vh;
     }
 }
