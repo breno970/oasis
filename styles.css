@@ -97,7 +97,7 @@ body {
 }
 
 .logo-container img {
-    width: 110%;
+    width: 125%;
     height: auto;
     max-height: 200px;
     object-fit: contain;
