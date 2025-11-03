@@ -1,13 +1,12 @@
-let tempoRestante = 3600; // 1 horas em segundos
-let cronometroInterval = null;
-let isRunning = false;
-
 const tempoElemento = document.getElementById('tempo');
 const iniciarBtn = document.getElementById('iniciarBtn');
 const addMinuteBtn = document.getElementById('addMinuteBtn');
-const message = document.getElementById('message');
+const mensagemTexto = document.getElementById('mensagemTexto'); // span separado
 
-// Formata segundos para HH:MM:SS
+let tempoRestante = 3600; // 1 hora
+let cronometroInterval = null;
+let isRunning = false;
+
 function formatarTempo(segundos) {
     const horas = Math.floor(segundos / 3600);
     const minutos = Math.floor((segundos % 3600) / 60);
@@ -22,9 +21,8 @@ function atualizarCronometro() {
 function iniciarCronometro() {
     if (isRunning) return;
     isRunning = true;
-    message.textContent = 'Timer started';
-    iniciarBtn.textContent = 'Pause';
-    iniciarBtn.setAttribute('aria-pressed', 'true');
+    mensagemTexto.textContent = 'Timer started!';
+    iniciarBtn.textContent = 'PAUSE';
     addMinuteBtn.disabled = false;
 
     cronometroInterval = setInterval(() => {
@@ -34,9 +32,8 @@ function iniciarCronometro() {
         } else {
             clearInterval(cronometroInterval);
             isRunning = false;
-            message.textContent = 'Time out! Please restart.';
-            iniciarBtn.textContent = 'Restart';
-            iniciarBtn.setAttribute('aria-pressed', 'false');
+            mensagemTexto.textContent = 'Time out! Please restart.';
+            iniciarBtn.textContent = 'RESTART';
             addMinuteBtn.disabled = true;
         }
     }, 1000);
@@ -46,17 +43,15 @@ function pausarCronometro() {
     if (!isRunning) return;
     clearInterval(cronometroInterval);
     isRunning = false;
-    message.textContent = 'Paused';
-    iniciarBtn.textContent = 'Continue';
-    iniciarBtn.setAttribute('aria-pressed', 'false');
+    mensagemTexto.textContent = 'Paused';
+    iniciarBtn.textContent = 'CONTINUE';
 }
 
 function reiniciarCronometro() {
-    tempoRestante = 10800;
+    tempoRestante = 3600;
     atualizarCronometro();
-    message.textContent = 'Ready to start';
-    iniciarBtn.textContent = 'Start';
-    iniciarBtn.setAttribute('aria-pressed', 'false');
+    mensagemTexto.textContent = 'Ready to start';
+    iniciarBtn.textContent = 'START';
     isRunning = false;
     addMinuteBtn.disabled = false;
 }
@@ -75,8 +70,8 @@ addMinuteBtn.addEventListener('click', () => {
     if (tempoRestante === 0) return;
     tempoRestante += 60;
     atualizarCronometro();
-    message.textContent = '1 minute added';
+    mensagemTexto.textContent = '1 minute added!';
 });
 
-// Inicializa cronômetro na tela
+// Inicializa cronômetro
 atualizarCronometro();

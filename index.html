@@ -16,11 +16,11 @@
                 <img src="teste.png" alt="Logo do Bar Oasis" />
             </div>
             <h1>OASIS CRAZY INFINITY ♾ HAPPY HOUR</h1>
-            <br>
-            <p class="sub-message">Promotion valid for selected cocktails only.<br>
-                 Ask the staff!</p>
+            <p class="sub-message">
+                Promotion valid for selected cocktails only.<br>
+                Ask the staff!
+            </p>
         </div>
-        
 
         <!-- CENTRO -->
         <div class="center">
@@ -30,12 +30,14 @@
                 </div>
             </div>
 
+            <!-- Mensagem dinâmica -->
             <div id="message" aria-live="polite" aria-atomic="true">
-                WAIT... THE TIMER IS READY TO START!
+                <span id="mensagemTexto">WAIT... THE TIMER IS READY TO START!</span>
             </div>
 
+            <!-- BOTOES FIXOS -->
             <div class="botoes">
-                <button id="iniciarBtn">START</button>
+                <button id="iniciarBtn" aria-pressed="false">START</button>
                 <button id="addMinuteBtn">ADD 1 MINUTE</button>
             </div>
         </div>
@@ -57,5 +59,8 @@
         </div>
 
     </div>
+
+    <!-- SCRIPT DO CRONOMETRO -->
+    <script src="script.js"></script>
 </body>
 </html>
