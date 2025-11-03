@@ -94,6 +94,36 @@ h1 {
 }
 
 /* ===========================
+   NOVA MENSAGEM VERDE NEON
+=========================== */
+.sub-message {
+    font-size: clamp(14px, 1.8vw, 24px); /* tamanho responsivo */
+    color: #00ff7f; /* verde neon */
+    text-shadow: 
+        0 0 4px #39ff14,
+        0 0 8px #00ff7f,
+        0 0 12px #39ff14;
+    margin-top: 1vh;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    animation: neonTextPulse 2s infinite alternate;
+}
+
+/* animação neon pulsante */
+@keyframes neonTextPulse {
+    0% {
+        text-shadow: 0 0 4px #39ff14, 0 0 8px #00ff7f, 0 0 12px #39ff14;
+    }
+    50% {
+        text-shadow: 0 0 8px #39ff14, 0 0 16px #00ff7f, 0 0 24px #39ff14;
+    }
+    100% {
+        text-shadow: 0 0 4px #39ff14, 0 0 8px #00ff7f, 0 0 12px #39ff14;
+    }
+}
+
+/* ===========================
    CENTRO
 =========================== */
 .center {
